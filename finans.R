@@ -5,35 +5,31 @@
 ## ## In RStudio use conveniently the menu "Session->Set Working
 ## ## Directory->To Source File Location"
 ## ## In R use only "/" for separating in paths (i.e. no backslash)
-## setwd("Replace with path to where the project files are")
+setwd("C:\Users\Default User.DESKTOP-F6CKQMA\OneDrive\Skrivebord\Statistik-projekt")
 
 ## 
 ## ################################
 ## ## Import the data
 ## 
 ## ## Read the finans1_data.csv file containing the data
-## wr <- read.table("finans1_data.csv", header=TRUE, sep=";", as.is=TRUE)
+wr <- read.table("finans1_data.csv", header=TRUE, sep=";", as.is=TRUE)
 
 ## 
 ## #############################
 ## ## Overview of the data
 ## 
 ## ## Dimension of HE (number of rows and columns)
-## dim(wr)
+ dim(wr)
 ## ## Column names
-## names(wr)
-## ## The first rows
-## head(wr)
-## ## The last rows
-## tail(wr)
-## ## Default summary
-## summary(wr)
+ names(wr)
+ ## The first rows
+ head(wr)
+ ## The last rows
+ tail(wr)
+ ## Default summary
+ summary(wr)
 ## ## Another summary function also including the data type
-## str(wr)
-
-
-
-
+ str(wr)
 
 ############################
 ## Descriptive analysis of selected variables
