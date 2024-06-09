@@ -47,30 +47,29 @@ sd(wr$AGG)
 ## For futher info see ?apply.
 
 
-hist(wr$AGG, prob=TRUE, col="red", nclass=8)
-
+par(mfrow = c(2,2))
 plot(ecdf(wr$AGG), verticals=TRUE,
      xlab = "Ugentlig udvikling",
-     ylab = "Empirisk tæthed")
-
+     ylab = "Empirisk tæthed",
+     col="red")
 plot(ecdf(wr$VAW), verticals=TRUE,
      xlab = "Ugentlig udvikling",
-     ylab = "Empirisk tæthed")
-
+     ylab = "Empirisk tæthed",
+     col="blue")
 plot(ecdf(wr$IWN), verticals=TRUE,
      xlab = "Ugentlig udvikling",
-     ylab = "Empirisk tæthed")
-
+     ylab = "Empirisk tæthed",
+     col="green")
 plot(ecdf(wr$SPY), verticals=TRUE,
      xlab = "Ugentlig udvikling",
-     ylab = "Empirisk tæthed")
+     ylab = "Empirisk tæthed",
+     col="pink")
 
 par(mfrow = c(2,2))
-boxplot(wr$AGG, col="red", main="Avanceret box \n plot for AGG")
-boxplot(wr$VAW, col="blue", main="Avanceret box \n plot for VAW")
-boxplot(wr$IWN, col="green", main="Avanceret box \n plot for IWN")
-boxplot(wr$SPY, col="pink", main="Avanceret box \n plot for SPY")
-
+boxplot(wr$AGG, col="lightsalmon", main="Avanceret box \n plot for AGG")
+boxplot(wr$VAW, col="cyan", main="Avanceret box \n plot for VAW")
+boxplot(wr$IWN, col="seagreen2", main="Avanceret box \n plot for IWN")
+boxplot(wr$SPY, col="magenta", main="Avanceret box \n plot for SPY")
 
 mean(wr$AGG)
 mean(wr$VAW)
@@ -92,6 +91,87 @@ quantile(wr$VAW, probs = c(0.25, 0.5, 0.75), type = 2)
 quantile(wr$IWN, probs = c(0.25, 0.5, 0.75), type = 2)
 quantile(wr$SPY, probs = c(0.25, 0.5, 0.75), type = 2)
 ########################
+
+
+hist(wr$AGG,
+     freq = FALSE,
+     prob = TRUE,
+     col = "light blue",
+     nclass = 40,
+     main = "Histogram, AGG",
+     xlab = "Relativt afkast",
+     ylab = "Densitet"
+)
+abline(v = median(wr$AGG), col = "red", lwd = 2, lty = 2)
+legend(
+  "topright", 
+  legend = "M",
+  col ="red",
+  lty = 2,
+  lwd = 2,
+  cex = 1.2,
+  bty = "y"
+)
+
+hist(wr$VAW,
+     freq = FALSE,
+     prob = TRUE,
+     col = "light blue",
+     nclass = 40,
+     main = "Histogram, VAW",
+     xlab = "Relativt afkast",
+     ylab = "Densitet"
+)
+abline(v = median(wr$VAW), col = "red", lwd = 2, lty = 2)
+legend(
+  "topright", 
+  legend = "M",
+  col ="red",
+  lty = 2,
+  lwd = 2,
+  cex = 1.2,
+  bty = "y"
+)
+
+hist(wr$IWN,
+     freq = FALSE,
+     prob = TRUE,
+     col = "light blue",
+     nclass = 40,
+     main = "Histogram for IWN",
+     xlab = "Relativt afkast",
+     ylab = "Densitet"
+)
+abline(v = median(wr$IWN), col = "red", lwd = 2, lty = 2)
+legend(
+  "topright", 
+  legend = "M",
+  col ="red",
+  lty = 2,
+  lwd = 2,
+  cex = 1.2,
+  bty = "y"
+)
+
+hist(wr$SPY,
+     freq = FALSE,
+     prob = TRUE,
+     col = "light blue",
+     nclass = 40,
+     main = "Histogram for SPY",
+     xlab = "Relativt afkast",
+     ylab = "Densitet"
+)
+abline(v = median(wr$SPY), col = "red", lwd = 2, lty = 2)
+legend(
+  "topright", 
+  legend = "M",
+  col ="red",
+  lty = 2,
+  lwd = 2,
+  cex = 1.2,
+  bty = "y"
+)
 
 ##c)
 
