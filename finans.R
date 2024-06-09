@@ -12,6 +12,7 @@ setwd("C:\Users\Default User.DESKTOP-F6CKQMA\OneDrive\Skrivebord\Statistik-proje
 ## ## Import the data
 ## 
 ## ## Read the finans1_data.csv file containing the data
+
 wr <- read.table("finans1_data.csv", header=TRUE, sep=";", as.is=TRUE)
 
 ## 
@@ -34,6 +35,8 @@ wr <- read.table("finans1_data.csv", header=TRUE, sep=";", as.is=TRUE)
 ############################
 ## Descriptive analysis of selected variables
 ## b)
+ 
+##AGG
 sum(!is.na(wr$AGG))
 mean(wr$AGG)
 sd(wr$AGG)
@@ -44,14 +47,56 @@ sd(wr$AGG)
 ## For futher info see ?apply.
 
 
+hist(wr$AGG, prob=TRUE, col="red", nclass=8)
+
+plot(ecdf(wr$AGG), verticals=TRUE,
+     xlab = "Ugentlig udvikling",
+     ylab = "Empirisk tæthed")
+
+plot(ecdf(wr$VAW), verticals=TRUE,
+     xlab = "Ugentlig udvikling",
+     ylab = "Empirisk tæthed")
+
+plot(ecdf(wr$IWN), verticals=TRUE,
+     xlab = "Ugentlig udvikling",
+     ylab = "Empirisk tæthed")
+
+plot(ecdf(wr$SPY), verticals=TRUE,
+     xlab = "Ugentlig udvikling",
+     ylab = "Empirisk tæthed")
+
+par(mfrow = c(2,2))
+boxplot(wr$AGG, col="red", main="Avanceret box \n plot for AGG")
+boxplot(wr$VAW, col="blue", main="Avanceret box \n plot for VAW")
+boxplot(wr$IWN, col="green", main="Avanceret box \n plot for IWN")
+boxplot(wr$SPY, col="pink", main="Avanceret box \n plot for SPY")
 
 
+mean(wr$AGG)
+mean(wr$VAW)
+mean(wr$IWN)
+mean(wr$SPY)
+
+var(wr$AGG)
+var(wr$VAW)
+var(wr$IWN)
+var(wr$SPY)
+
+sd(wr$AGG)
+sd(wr$VAW)
+sd(wr$IWN)
+sd(wr$SPY)
+
+quantile(wr$AGG, probs = c(0.25, 0.5, 0.75), type = 2)
+quantile(wr$VAW, probs = c(0.25, 0.5, 0.75), type = 2)
+quantile(wr$IWN, probs = c(0.25, 0.5, 0.75), type = 2)
+quantile(wr$SPY, probs = c(0.25, 0.5, 0.75), type = 2)
+########################
+
+##c)
 
 
-
-
-
-###########################
+  #######################
 ## d)
 ## Determination of the correlation between ETFs 
 ## and determination of portfolio
