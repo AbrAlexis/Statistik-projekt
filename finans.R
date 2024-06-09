@@ -172,8 +172,46 @@ legend(
   cex = 1.2,
   bty = "y"
 )
+##########################
 
 ##c)
+##AGG
+min(wr$AGG)
+min_index_AGG <- which.min(wr$AGG)
+wr[min_index, 1]
+
+max(wr$AGG)
+max_index_AGG <- which.max(wr$AGG)
+wr[max_index_AGG, 1]
+
+##VAW
+min(wr$VAW)
+min_index_VAW <- which.min(wr$VAW)
+wr[min_index, 1]
+
+max(wr$VAW)
+max_index_VAW <- which.max(wr$VAW)
+wr[max_index_VAW, 1]
+
+##IWN
+min(wr$IWN)
+min_index_IWN <- which.min(wr$IWN)
+wr[min_index, 1]
+
+max(wr$IWN)
+max_index_IWN <- which.max(wr$IWN)
+wr[max_index_IWN, 1]
+
+##SPY
+min(wr$SPY)
+min_index_SPY <- which.min(wr$SPY)
+wr[min_index, 1]
+
+max(wr$SPY)
+max_index_SPY <- which.max(wr$SPY)
+wr[max_index_SPY, 1]
+
+
 
 
   #######################
