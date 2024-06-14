@@ -12,7 +12,6 @@ setwd("C:\Users\Default User.DESKTOP-F6CKQMA\OneDrive\Skrivebord\Statistik-proje
 ## ## Import the data
 ## 
 ## ## Read the finans1_data.csv file containing the data
-
 wr <- read.table("finans1_data.csv", header=TRUE, sep=";", as.is=TRUE)
 
 ## 
@@ -221,23 +220,21 @@ wr[max_index_SPY, 1]
 cov(wr[ ,c("AGG","VAW","IWN","SPY","EWG","EWW")])
 
 
+#################################
+## e)
+
+var(wr$EWG)
+var(wr$EWW)
+
+cov(wr$EWW, wr$EWG)
 
 
+0.6445185947*mean(wr$EWG) + (1 - 0.6445185947) * EWW
 
+mean(wr$EWG)
 
+mean(wr$EWW)
 
-
-
-
-
-
-
-
-
-
-
-
-  
 ###########################
 ## Model validation
 ## f)
@@ -246,10 +243,6 @@ qqnorm(wr$AGG, main='Validation of normal distribution assumption for AGG',
        xlab='z-scores', ylab='Weekly returns')
 qqline(wr$AGG)
 ## Do the same for the other ETFs
-
-
-
-
 
 
   
@@ -266,21 +259,6 @@ qt(0.975, 453)
 ## The 95% confidence interval for AGG
 t.test(wr$AGG, conf.level=0.95)$conf.int
 ## Do the same for the other ETFs
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
