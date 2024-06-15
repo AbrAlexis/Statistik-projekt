@@ -239,10 +239,28 @@ mean(wr$EWW)
 ## Model validation
 ## f)
 ## Validation of a model for AGG
-qqnorm(wr$AGG, main='Validation of normal distribution assumption for AGG',
+
+par(mfrow = c(2,2))
+qqnorm(wr$AGG, main='Validation of norm. distribution assump. AGG',
        xlab='z-scores', ylab='Weekly returns')
 qqline(wr$AGG)
+
+
 ## Do the same for the other ETFs
+
+
+qqnorm(wr$VAW, main='Validation of norm. distribution assump. VAW',
+       xlab='z-scores', ylab='Weekly returns')
+qqline(wr$VAW)
+
+
+qqnorm(wr$IWN, main='Validation of norm. distribution assump. IWN',
+       xlab='z-scores', ylab='Weekly returns')
+qqline(wr$IWN)
+
+qqnorm(wr$SPY, main='Validation of norm. distribution assump. SPY',
+       xlab='z-scores', ylab='Weekly returns')
+qqline(wr$SPY)
 
 
   
