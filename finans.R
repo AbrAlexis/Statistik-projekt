@@ -271,18 +271,67 @@ qqline(wr$SPY)
 ## since the degrees of freedom for the mean of AGG are 453 
 qt(0.975, 453)
 
-## Determination of the confidence interval for the mean parameter in a
+qchisq(0.05/2, 453)
+
+qchisq(0.975, 453)
+
+(453*0.005975841**2)/qchisq(0.05/2, 453)
+(453*0.005975841**2)/qchisq(0.975, 453)
+
+(453*sd(wr$VAW)**2)/qchisq(0.05/2, 453)
+(453*sd(wr$VAW)**2)/qchisq(0.975, 453)
+
+(453*sd(wr$IWN)**2)/qchisq(0.05/2, 453)
+(453*sd(wr$IWN)**2)/qchisq(0.975, 453)
+
+(453*sd(wr$SPY)**2)/qchisq(0.05/2, 453)
+(453*sd(wr$SPY)**2)/qchisq(0.975, 453)
+
+evalf(4.08589e-05)
+ ## Determination of the confidence interval for the mean parameter in a
 ## normally distributed random sample
 
 ## The 95% confidence interval for AGG
-t.test(wr$AGG, conf.level=0.95)$conf.int
+t.test(wr$AGG, conf.level=0.95)
 ## Do the same for the other ETFs
 
+t.test(wr$VAW, conf.level=0.95)$conf.int
 
-
+t.test(wr$IWN, conf.level=0.95)$conf.int
   
+t.test(wr$SPY, conf.level=0.95)$conf.int
+
+mean(wr$AGG ) + qt(0.975, 453) * (sd(wr$AGG)/sqrt(454))
+
+mean(wr$AGG ) - qt(0.975, 453) * (sd(wr$AGG)/sqrt(454))
+
+
+
 ################################
-## 
+## h)
+conf_non_parametric <- function(etf, k = 100000) {
+  simSamples = replicate(k, sample(etf, replace = TRUE)) 
+  simMeans = apply(simSamples, 2, mean)
+  simVars = apply(simSamples, 2, var)
+  print(quantile(simMeans, c(0.025, 0.975)))
+  print(quantile(simVars, c(0.025, 0.975)))
+}
+
+conf_non_parametric(wr$AGG)
+conf_non_parametric(wr$VAW)
+conf_non_parametric(wr$IWN)
+conf_non_parametric(wr$SPY)
+
+#########################################
+## ## i)
+t.test(wr$AGG)
+
+t.test(wr$VAW)
+
+t.test(wr$IWN)
+
+t.test(wr$SPY)
+ ## 
 ## Import data finans2_data.csv
 etfSum <- read.table("finans2_data.csv",header=TRUE, sep=";")
 str(etfSum)
